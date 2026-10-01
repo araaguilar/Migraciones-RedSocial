@@ -18,6 +18,7 @@ Ejecuta los archivos en este orden:
 4. `004_vista_disponibilidad_emails.sql`
 5. `005_crear_tabla_perfiles_usuario.sql`
 6. `006_crear_tabla_recuperaciones_password.sql`
+7. `007_social_basico_perfiles_seguidores.sql`
 
 El orden importa porque la segunda migración agrega columnas y tablas sobre la estructura creada por la primera.
 
@@ -69,6 +70,12 @@ Los scripts usan `USE RedSocialDB`, por lo que la primera migración crea la bas
 - Tabla `RecuperacionesPassword`.
 - Códigos hasheados para recuperación de contraseña.
 - Token temporal de recuperación con expiración e intentos fallidos.
+
+`007_social_basico_perfiles_seguidores.sql` agrega:
+
+- `SobreMi` de máximo 300 caracteres.
+- `TotalMeEncanta` en perfiles.
+- Tabla `Seguidores` con relación única seguidor/seguido.
 
 ## Notas importantes
 
