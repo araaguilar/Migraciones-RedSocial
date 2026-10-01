@@ -15,6 +15,7 @@ Ejecuta los archivos en este orden:
 1. `001_crear_tabla_usuarios.sql`
 2. `002_registro_verificacion_email_roles.sql`
 3. `003_vista_disponibilidad_usuarios.sql`
+4. `004_vista_disponibilidad_emails.sql`
 
 El orden importa porque la segunda migración agrega columnas y tablas sobre la estructura creada por la primera.
 
@@ -49,6 +50,11 @@ Los scripts usan `USE RedSocialDB`, por lo que la primera migración crea la bas
 
 - Vista `vw_UsuariosLookup`.
 - Índice único sobre `NombreUsuario` para consultas rápidas de disponibilidad.
+
+`004_vista_disponibilidad_emails.sql` agrega:
+
+- Vista `vw_EmailsLookup`.
+- Índice único sobre `Email` para consultas rápidas de disponibilidad.
 
 ## Notas importantes
 
