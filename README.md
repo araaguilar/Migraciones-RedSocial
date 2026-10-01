@@ -17,6 +17,7 @@ Ejecuta los archivos en este orden:
 3. `003_vista_disponibilidad_usuarios.sql`
 4. `004_vista_disponibilidad_emails.sql`
 5. `005_crear_tabla_perfiles_usuario.sql`
+6. `006_crear_tabla_recuperaciones_password.sql`
 
 El orden importa porque la segunda migración agrega columnas y tablas sobre la estructura creada por la primera.
 
@@ -62,6 +63,12 @@ Los scripts usan `USE RedSocialDB`, por lo que la primera migración crea la bas
 - Tabla `PerfilesUsuario`.
 - Relación 1 a 1 con `Usuarios`.
 - Migración inicial de `NombrePerfil` y `FechaNacimiento` desde usuarios existentes.
+
+`006_crear_tabla_recuperaciones_password.sql` agrega:
+
+- Tabla `RecuperacionesPassword`.
+- Códigos hasheados para recuperación de contraseña.
+- Token temporal de recuperación con expiración e intentos fallidos.
 
 ## Notas importantes
 
