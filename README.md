@@ -14,6 +14,7 @@ Ejecuta los archivos en este orden:
 
 1. `001_crear_tabla_usuarios.sql`
 2. `002_registro_verificacion_email_roles.sql`
+3. `003_vista_disponibilidad_usuarios.sql`
 
 El orden importa porque la segunda migración agrega columnas y tablas sobre la estructura creada por la primera.
 
@@ -44,6 +45,11 @@ Los scripts usan `USE RedSocialDB`, por lo que la primera migración crea la bas
 - `EmailVerificado`
 - Tabla `VerificacionesEmail` para códigos de verificación.
 
+`003_vista_disponibilidad_usuarios.sql` agrega:
+
+- Vista `vw_UsuariosLookup`.
+- Índice único sobre `NombreUsuario` para consultas rápidas de disponibilidad.
+
 ## Notas importantes
 
 - Los scripts están escritos para SQL Server.
@@ -51,3 +57,20 @@ Los scripts usan `USE RedSocialDB`, por lo que la primera migración crea la bas
 - Los códigos de verificación tampoco se guardan en texto plano; se guarda `CodigoHash`.
 - Si la base ya tiene usuarios, la migración 002 rellena `NombrePerfil` usando `NombreUsuario`.
 
+## Sincronización automática local
+
+Este repo incluye un watcher opcional para Windows. Sirve para que, en esta PC, cada cambio en archivos `.sql` o en este `README.md` genere un commit automático y haga `git push`.
+
+Instalar:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-watcher.ps1
+```
+
+Desinstalar:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\uninstall-watcher.ps1
+```
+
+El instalador crea un acceso de arranque en la carpeta de Inicio de Windows del usuario actual. No requiere permisos de administrador.
