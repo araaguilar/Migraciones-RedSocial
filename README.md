@@ -19,6 +19,7 @@ Ejecuta los archivos en este orden:
 5. `005_crear_tabla_perfiles_usuario.sql`
 6. `006_crear_tabla_recuperaciones_password.sql`
 7. `007_social_basico_perfiles_seguidores.sql`
+8. `008_crear_tabla_momentos.sql`
 
 El orden importa porque la segunda migración agrega columnas y tablas sobre la estructura creada por la primera.
 
@@ -76,6 +77,12 @@ Los scripts usan `USE RedSocialDB`, por lo que la primera migración crea la bas
 - `SobreMi` de máximo 300 caracteres.
 - `TotalMeEncanta` en perfiles.
 - Tabla `Seguidores` con relación única seguidor/seguido.
+
+`008_crear_tabla_momentos.sql` agrega:
+
+- Tabla `Momentos`.
+- Relación obligatoria con `Usuarios`.
+- Soporte inicial para texto, foto, video y link.
 
 ## Notas importantes
 
