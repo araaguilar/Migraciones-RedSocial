@@ -20,6 +20,7 @@ Ejecuta los archivos en este orden:
 6. `006_crear_tabla_recuperaciones_password.sql`
 7. `007_social_basico_perfiles_seguidores.sql`
 8. `008_crear_tabla_momentos.sql`
+9. `009_crear_me_gusta_momentos.sql`
 
 El orden importa porque la segunda migración agrega columnas y tablas sobre la estructura creada por la primera.
 
@@ -83,6 +84,12 @@ Los scripts usan `USE RedSocialDB`, por lo que la primera migración crea la bas
 - Tabla `Momentos`.
 - Relación obligatoria con `Usuarios`.
 - Soporte inicial para texto, foto, video y link.
+
+`009_crear_me_gusta_momentos.sql` agrega:
+
+- Tabla `MeGustaMomentos`.
+- Relación única por usuario y momento.
+- Índices para consultar reacciones del usuario rápidamente.
 
 ## Notas importantes
 
