@@ -23,6 +23,7 @@ Ejecuta los archivos en este orden:
 9. `009_crear_me_gusta_momentos.sql`
 10. `010_historial_cambios_perfil.sql`
 11. `011_soft_delete_momentos.sql`
+12. `012_busqueda_perfiles_momentos.sql`
 
 El orden importa porque la segunda migración agrega columnas y tablas sobre la estructura creada por la primera.
 
@@ -105,6 +106,12 @@ Los scripts usan `USE RedSocialDB`, por lo que la primera migración crea la bas
 - Fecha de entrada al limbo y fecha de eliminación definitiva a 30 días.
 - Usuario que eliminó y motivo de eliminación.
 - Índice para futuras limpiezas/auditorías.
+
+`012_busqueda_perfiles_momentos.sql` agrega:
+
+- Vista `vw_BusquedaPerfiles`.
+- Índices para buscar por nombre de usuario y nombre de perfil.
+- Índice base para búsquedas de momentos activos.
 
 ## Notas importantes
 
