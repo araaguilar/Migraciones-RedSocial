@@ -22,6 +22,7 @@ Ejecuta los archivos en este orden:
 8. `008_crear_tabla_momentos.sql`
 9. `009_crear_me_gusta_momentos.sql`
 10. `010_historial_cambios_perfil.sql`
+11. `011_soft_delete_momentos.sql`
 
 El orden importa porque la segunda migración agrega columnas y tablas sobre la estructura creada por la primera.
 
@@ -97,6 +98,13 @@ Los scripts usan `USE RedSocialDB`, por lo que la primera migración crea la bas
 - Tabla `HistorialCambiosPerfil`.
 - Historial de cambios de nombre de perfil y nombre de usuario.
 - Índice por usuario, tipo de cambio y fecha para validar restricciones temporales.
+
+`011_soft_delete_momentos.sql` agrega:
+
+- Campos de eliminación suave en `Momentos`.
+- Fecha de entrada al limbo y fecha de eliminación definitiva a 30 días.
+- Usuario que eliminó y motivo de eliminación.
+- Índice para futuras limpiezas/auditorías.
 
 ## Notas importantes
 
